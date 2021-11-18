@@ -60,17 +60,6 @@ namespace Code
             }
         }
 
-        //     Console.WriteLine($" {a1} | {a2} | {a3} ");
-
-        //      
-        //     Console.WriteLine(" {0} | {1} | {2} ", b1, b2, b3);
-        //     
-        //     Console.WriteLine(" {0} | {1} | {2} ", c1, c2, c3);
-    }
-
-
-
-
     class Program
     {
         // public static string cordinates = "-";
