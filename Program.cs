@@ -17,21 +17,35 @@ namespace Code
 
         public void PlaceX(int x, int y)
         {
-            if (x > _boardSize - 1 || y > _boardSize - 1)
-            {
-                return;
-            }
-
+           if(Validate(x, y) != true)
+           {
+               return;
+           }
             _board[x, y] = 'x';
         }
 
         public void PlaceO(int x, int y)
         {
+           if(Validate(x, y) != true)
+           {
+               return;
+           }
+            _board[x, y] = 'o';
+        }
+
+        private bool Validate(int x, int y)
+        {
             if (x > _boardSize - 1 || y > _boardSize - 1)
             {
-                return;
+                Console.WriteLine($"{x},{y} is outside the board");
+                return false;
             }
-            _board[x, y] = 'o';
+            if (_board[x, y] != '\0')
+            {
+                Console.WriteLine($"{x},{y} is already taken");
+                return false;
+            }
+            return true;
         }
 
         public void Print()
@@ -60,67 +74,68 @@ namespace Code
             }
         }
 
-    class Program
-    {
-        public static void Main()
+        class Program
         {
-            var board = new Board(3);
-            board.PlaceX(0, 0);
-            board.PlaceO(1, 4);
-            board.PlaceX(4, 0);
-            board.PlaceO(0, 1);
-            board.PlaceX(1, 1);
-            board.PlaceO(2, 1);
-            board.PlaceX(0, 2);
-            board.PlaceO(1, 2);
-            board.PlaceX(2, 2);
-            board.Print();
+            public static void Main()
+            {
+                var board = new Board(3);
+                board.PlaceX(0, 0);
+                board.PlaceO(0, 0);
+                board.PlaceO(1, 4);
+                board.PlaceX(4, 0);
+                board.PlaceO(0, 1);
+                board.PlaceX(1, 1);
+                board.PlaceO(2, 1);
+                board.PlaceX(0, 2);
+                board.PlaceO(1, 2);
+                board.PlaceX(2, 2);
+                board.Print();
 
+            }
+
+
+
+
+
+            // public static void ifStatements()
+            // {
+            //     if (cordinates == "a1")
+            //     {
+            //         a1 = 'x';
+            //     }
+            //     else if (cordinates == "a2")
+            //     {
+            //         a2 = 'x';
+            //     }
+            //     else if (cordinates == "a3")
+            //     {
+            //         a3 = 'x';
+            //     }
+            //     else if (cordinates == "b1")
+            //     {
+            //         b1 = 'x';
+            //     }
+            //     else if (cordinates == "b2")
+            //     {
+            //         b2 = 'x';
+            //     }
+            //     else if (cordinates == "b3")
+            //     {
+            //         b3 = 'x';
+            //     }
+            //     else if (cordinates == "c1")
+            //     {
+            //         c1 = 'x';
+            //     }
+            //     else if (cordinates == "c2")
+            //     {
+            //         c2 = 'x';
+            //     }
+            //     else if (cordinates == "c3")
+            //     {
+            //         c3 = 'x';
+            //     }
+            // }
         }
-
-
-
-
-
-        // public static void ifStatements()
-        // {
-        //     if (cordinates == "a1")
-        //     {
-        //         a1 = 'x';
-        //     }
-        //     else if (cordinates == "a2")
-        //     {
-        //         a2 = 'x';
-        //     }
-        //     else if (cordinates == "a3")
-        //     {
-        //         a3 = 'x';
-        //     }
-        //     else if (cordinates == "b1")
-        //     {
-        //         b1 = 'x';
-        //     }
-        //     else if (cordinates == "b2")
-        //     {
-        //         b2 = 'x';
-        //     }
-        //     else if (cordinates == "b3")
-        //     {
-        //         b3 = 'x';
-        //     }
-        //     else if (cordinates == "c1")
-        //     {
-        //         c1 = 'x';
-        //     }
-        //     else if (cordinates == "c2")
-        //     {
-        //         c2 = 'x';
-        //     }
-        //     else if (cordinates == "c3")
-        //     {
-        //         c3 = 'x';
-        //     }
-        // }
     }
-
 }
