@@ -62,7 +62,6 @@ namespace Code
 
     class Program
     {
-        // public static string cordinates = "-";
         public static void Main()
         {
             var board = new Board(3);
