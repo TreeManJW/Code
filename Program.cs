@@ -37,12 +37,12 @@ namespace Code
         {
             if (x > _boardSize - 1 || y > _boardSize - 1)
             {
-                Console.WriteLine($"{x},{y} is outside the board");
+                Console.WriteLine($"{x + 1},{y + 1} is outside the board");
                 return false;
             }
             if (_board[x, y] != '\0')
             {
-                Console.WriteLine($"{x},{y} is already taken");
+                Console.WriteLine($"{x + 1},{y + 1} is already taken");
                 return false;
             }
             return true;
@@ -76,23 +76,34 @@ namespace Code
 
         class Program
         {
-            public static void Main()
+            public static int xMove;
+            public static int yMove;
+            public static void Input()
             {
-                var board = new Board(3);
-                board.PlaceX(0, 0);
-                board.PlaceO(0, 0);
-                board.PlaceO(1, 4);
-                board.PlaceX(4, 0);
-                board.PlaceO(0, 1);
-                board.PlaceX(1, 1);
-                board.PlaceO(2, 1);
-                board.PlaceX(0, 2);
-                board.PlaceO(1, 2);
-                board.PlaceX(2, 2);
-                board.Print();
-
+                Console.WriteLine("Move x");
+                xMove = Int32.Parse(Console.ReadLine());
+                Console.WriteLine("Move y");
+                yMove = Int32.Parse(Console.ReadLine());
             }
 
+            public static void Main()
+            {
+                
+                var board = new Board(3);
+                Input();
+                board.PlaceX(xMove - 1, yMove - 1);
+                //board.PlaceO(0, 0);
+                //board.PlaceO(1, 4);
+                //board.PlaceX(4, 0);
+                //board.PlaceO(0, 1);
+                //board.PlaceX(1, 1);
+                //board.PlaceO(2, 1);
+                //board.PlaceX(0, 2);
+                //board.PlaceO(1, 2);
+                //board.PlaceX(2, 2);
+                board.Print();
+                
+            }
 
 
 
